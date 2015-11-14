@@ -1,14 +1,14 @@
 ﻿using System;
-using System.CodeDom;
-using System.Threading;
+using Exceptions_PartiallyFilledArray;
+using Exceptions_PartiallyFilledArray.Exceptions;
 
-namespace PartiallyFilledArray.Application
+namespace ConsoleApplication1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            IPartiallyFilledArray pfa = new PartiallyFilledArray(10);
+            IPartiallyFilledArray pfa = new PartiallyFilledArray(15);
 
             var cont = true;
             while (cont)
@@ -95,7 +95,7 @@ namespace PartiallyFilledArray.Application
                 }
                 catch (PFAIndexOutOfBoundsException ex)
                 {
-                    Console.WriteLine("Error: Index out of bounds: {0} >= {1}", ex.Pos, ex.Count);
+                    Console.WriteLine("Error: Index out of bounds: {0} >= {1}", ex._Pos, ex._Count);
                 }
                 catch (PFAArrayFullException ex)
                 {
@@ -103,7 +103,7 @@ namespace PartiallyFilledArray.Application
                 }
                 catch (PFANoDataAtIndexException ex)
                 {
-                    Console.WriteLine("Error: No data at index {0}", ex.Pos);
+                    Console.WriteLine("Error: No data at index {0}", ex._pos);
                 }
                 catch (Exception ex)
                 {

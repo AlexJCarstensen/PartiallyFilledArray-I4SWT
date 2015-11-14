@@ -1,4 +1,4 @@
-﻿namespace PartiallyFilledArray
+﻿namespace Exceptions_PartiallyFilledArray
 {
     public interface IPartiallyFilledArray
     {
