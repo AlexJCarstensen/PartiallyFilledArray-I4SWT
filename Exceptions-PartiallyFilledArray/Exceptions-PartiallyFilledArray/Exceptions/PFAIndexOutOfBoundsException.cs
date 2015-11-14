@@ -11,17 +11,5 @@ namespace Exceptions_PartiallyFilledArray.Exceptions
         public PFAIndexOutOfBoundsException()
         {
         }
-
-        public PFAIndexOutOfBoundsException(string message) : base(message)
-        {
-        }
-
-        public PFAIndexOutOfBoundsException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected PFAIndexOutOfBoundsException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

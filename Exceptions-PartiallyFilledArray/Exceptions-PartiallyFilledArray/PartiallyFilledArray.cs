@@ -1,4 +1,6 @@
 ﻿using System;
+using System.CodeDom;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Principal;
 using Exceptions_PartiallyFilledArray.Exceptions;
@@ -12,7 +14,7 @@ namespace Exceptions_PartiallyFilledArray
         public PartiallyFilledArray(int arraySize)
         {
             Used = 0;
-            Size = (uint)arraySize ;
+            Size = (uint)arraySize;
             _array = new int[Size+1];
             
             for (uint i = 0; i <= 5; i++)
@@ -34,15 +36,13 @@ namespace Exceptions_PartiallyFilledArray
         {
             if (pos > Size)
                 throw new PFAIndexOutOfBoundsException();
-            if (Used == Size)
-                throw new PFAArrayFullException();
             _array.SetValue(data,pos);
             Used++;
         }
 
         public int Get(uint pos)
         {
-            if (_array.GetValue(pos) == null)
+            if ((int)_array.GetValue(pos) == 0)
                 throw new PFANoDataAtIndexException();
             return (int) _array.GetValue(pos);
         }
@@ -75,6 +75,8 @@ namespace Exceptions_PartiallyFilledArray
         {
             if (pos > Size)
                 throw new PFAIndexOutOfBoundsException();
+            if ((int) _array.GetValue(pos) == 0)
+                throw new PFANoDataAtIndexException();
             Array.Clear(_array, (int) pos,1);
             Used--;
         }
